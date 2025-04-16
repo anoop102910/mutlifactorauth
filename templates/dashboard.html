@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Multi-Factor Auth System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Dashboard</h3>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    <h4>Welcome, {{ user.username }}!</h4>
+                    <p class="text-muted">Email: {{ user.email }}</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Email Verification</h5>
+                                <p class="card-text">
+                                    Status: 
+                                    {% if user.email_verified %}
+                                        <span class="badge bg-success">Verified</span>
+                                    {% else %}
+                                        <span class="badge bg-danger">Not Verified</span>
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-6"> -->
+                        <!-- <div class="card mb-3"> -->
+                            <!-- <div class="card-body"> -->
+                                <!-- <h5 class="card-title">Two-Factor Authentication</h5> -->
+                                <!-- <p class="card-text"> -->
+                                    <!-- Status:  -->
+                                    <!-- {% if user.two_factor_enabled %} -->
+                                        <!-- <span class="badge bg-success">Enabled</span> -->
+                                    <!-- {% else %} -->
+                                        <!-- <span class="badge bg-warning">Disabled</span> -->
+                                    <!-- {% endif %} -->
+                                <!-- </p> -->
+                                <!-- {% if not user.two_factor_enabled %} -->
+                                    <!-- <a href="#" class="btn btn-primary btn-sm">Enable 2FA</a> -->
+                                <!-- {% endif %} -->
+                            <!-- </div> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

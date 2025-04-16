@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Multi-Factor Auth System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <h1 class="display-4 mb-4">Welcome to Multi-Factor Authentication System</h1>
+        <p class="lead mb-4">A secure authentication system with email verification and two-factor authentication support.</p>
+        
+        {% if not session.user_id %}
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg px-4 gap-3">Login</a>
+                <a href="{{ url_for('register') }}" class="btn btn-outline-secondary btn-lg px-4">Register</a>
+            </div>
+        {% else %}
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg px-4 gap-3">Go to Dashboard</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %} 
